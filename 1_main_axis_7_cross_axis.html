@@ -1,0 +1,150 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1. Ejes en Flexbox y funcionamiento</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        p {
+            margin: 1em 0.5em;
+        }
+
+        .underline {
+            text-decoration: underline
+        }
+
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 1.2em;
+        }
+
+        code {
+            outline: 1px solid darkgray;
+            padding: .3em;
+            background-color: lightgray;
+            color: gray;
+            font-size: .9em;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .ejemplos {}
+
+        .ejemplo .flex-container {
+            display: flex;
+            font-size: 4em;
+            background-color: rgb(66, 223, 202);
+        }
+
+        .ejemplo .flex-container .flex-item {
+            border: 1px solid #333;
+            margin: .5rem;
+        }
+
+        .ejemplo.ejemplo2 .flex-container {
+            flex-direction: column
+        }
+
+        .ejemplo.ejemplo2_1 .flex-container {
+            transform: rotate(90deg);
+            width: 120px;
+            margin-top: 30px;
+        }
+
+        .ejemplo.ejemplo3 .flex-container {
+            flex-direction: row-reverse
+        }
+
+        .ejemplo.ejemplo3_1 .flex-container {
+            flex-direction: column-reverse
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1 class="center">1. Ejes en Flexbox y funcionamiento</h1>
+        <div class="center mb-20">
+            <img src="https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg" alt="">
+        </div>
+        <p class="center mb-20"><small><b>Representación de los ejes en flex</b></small></p>
+        <p>Flexbox es un modelo de layout que relaciona padre con hijos, <span class="underline">siempre se necesita de
+                un padre para poder aplicar flex.</span></p>
+        <p> En el gráfico anterior, la linea gris exterior es el contenedor o padre <em><small><b>(flex
+                        container)</b></small></em>. Las cajas interiores que contienen un 1 y un 2 son los hijos
+            <em><small><b>(flex item)</b></small></em>.</p>
+        <p>Cuando a un elemento se le aplica <code>display:flex</code>, automáticamente sus hijos se
+            convierten en flex items</p>
+        <p>Las lineas rojas del gráfico representan los ejes. Un elemento flex tiene dos ejes <b>X</b> <em><small>(main
+                    axis)</small></em> e <b>Y</b> <em><small>(Cross axis)</small></em>. De manera predeterminada el eje
+            principal es el horizontal y el eje vertical el secundario. Ademas de tener una dirección horizontal o
+            vertical, también tienen un punto de inicio o sentido (circulo rojo de las lineas). <span
+                class="underline">De manera predeterminada</span> <b>main axis</b> va de izquierda a derecha y <b>cross
+                axis</b> de arriba a abajo</p>
+
+        <div class="ejemplos">
+            <div class="ejemplo ejemplo1">
+                <h2>Ejemplo 1</h2>
+                <p>En este ejemplo creamos un container <em>flex</em> con dos hijos (<em><small>1 y 2</small></em>) con
+                    el class <em>flex-item</em></p>
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                </div>
+            </div>
+            <p>Por defecto al hacer <strong>flex</strong>, el elemento padre ocupa el 100% del contenido (<em>a no ser
+                    que se ponga inline-flex</em>), los <em><b>items</b></em> se colocan también por defecto uno al lado
+                del otro.</p>
+            <div class="ejemplo ejemplo2">
+                <h2>Ejemplo 2</h2>
+                <p>Al poner en el contenedor <code>flex-direction:column</code> los items pasan a ocupar el 100% del
+                    contenedor ya que modificamos el eje del main axis o eje principal (<em>X</em>). </p>
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                </div>
+            </div>
+            <div class="ejemplo ejemplo2_1">
+                <p>Al poner el eje <em>X</em> como columna lo que hacemos es lo como si girásemos el contenedor 90º y
+                    por eso ocupa el 100% del contenido</p>
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                </div>
+            </div>
+            <div class="ejemplo ejemplo3">
+                <h2>Ejemplo 3</h2>
+                <p>Al igual que podemos cambiar el comportamiento del eje <em>X</em> con
+                    <code>flex-direction:column</code>
+                    también podemos cambiar el orden de dicho eje tanto en row como en column poniéndolo al revés </p>
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                </div>
+                <p class="center"><code>flex-direction: row-reverse</code></p>
+            </div>
+            <div class="ejemplo ejemplo3_1">
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                </div>
+                <p class="center"><code>flex-direction:column-reverse</code></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

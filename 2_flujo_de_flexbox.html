@@ -1,0 +1,197 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2. Flujo de Flexbox</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+
+        }
+
+        p {
+            margin: 1em 0.5em;
+        }
+
+        .underline {
+            text-decoration: underline
+        }
+
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+
+        code {
+            outline: 1px solid darkgray;
+            padding: .3em;
+            background-color: lightgray;
+            color: gray;
+            font-size: .9em;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 1.2em;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .ejemplo .flex-container {
+            display: flex;
+            font-size: 4em;
+            background-color: rgb(66, 223, 202);
+        }
+
+        .ejemplo .flex-container .flex-item {
+            border: 1px solid #333;
+            margin: .5rem;
+
+        }
+
+
+        .ejemplo.ejemplo1 .flex-container .flex-item {
+            padding: .5rem 1em;
+        }
+
+        .ejemplo.ejemplo2 .flex-container .flex-item {
+            width: 200px;
+            height: 200px;
+        }
+
+        .ejemplo.ejemplo3 .flex-container {
+            flex-wrap: wrap
+        }
+
+        .ejemplo.ejemplo3 .flex-container .flex-item {
+            width: 200px;
+            height: 200px;
+        }
+
+        .ejemplo.ejemplo4 .flex-container {
+            flex-wrap: wrap-reverse
+        }
+
+        .ejemplo.ejemplo4 .flex-container .flex-item {
+            width: 200px;
+            height: 200px;
+        }
+
+        .ejemplo.ejemplo5 .flex-container {
+            /* flex-direction: row-reverse;
+                flex-wrap: wrap-reverse; */
+            flex-flow: row-reverse wrap-reverse;
+        }
+
+        .ejemplo.ejemplo5 .flex-container .flex-item {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1 class="center">2. Flujo de Flexbox</h1>
+        <div class="ejemplos">
+            <div class="ejemplo ejemplo1">
+                <h2>Ejemplo 1</h2>
+                <p>El modo de funcionar del flujo de flexbox es si los items tienen espacio para comprimirse, se
+                    comprimen. En el ejemplo siguiente los items tienen un <em>padding</em>, por lo que que sobrepasan
+                    al padre y crea un scroll en pantalla debido a que por defecto el <em>flex-wrap</em> está en
+                    <em>nowrap</em> (<small>siempre que los items no tengan un tamaño definido</small>).</p>
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                    <div class="flex-item">6</div>
+                    <div class="flex-item">7</div>
+                    <div class="flex-item">8</div>
+                    <div class="flex-item">9</div>
+                </div>
+            </div>
+            <div class="ejemplo ejemplo2">
+                <h2>Ejemplo 2</h2>
+                <p>Si el <em>flex-wrap</em> está en <em>nowrap</em> (<small>valor por defecto</small>), esto causa que
+                    si un elemento tiene una anchura determinada, esta puede no respetarse y se comprimirán para
+                    adaptarse al padre. En este ejemplo cada caja tiene 200px de ancho por 200 de alto, pero como se
+                    puede observar esa anchura no se cumple ya que los items se adaptan al tamaño del padre.</p>
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                    <div class="flex-item">6</div>
+                    <div class="flex-item">7</div>
+                    <div class="flex-item">8</div>
+                    <div class="flex-item">9</div>
+                </div>
+            </div>
+            <div class="ejemplo ejemplo3">
+                <h2>Ejemplo 3</h2>
+                <p>Siguiendo el ejemplo anterior, los items tienen 200x200, pero si añadimos la opción
+                    <code>flex-wrap:wrap</code> al contenedor padre, entonces cuando el contenido no tiene espacio salta
+                    de
+                    linea y no comprime las cajas.</p>
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                    <div class="flex-item">6</div>
+                    <div class="flex-item">7</div>
+                    <div class="flex-item">8</div>
+                    <div class="flex-item">9</div>
+                </div>
+            </div>
+            <div class="ejemplo ejemplo4">
+                <h2>Ejemplo 4</h2>
+                <p>Lo que estamos modificando con el parámetro wrap es el eje secundario ( <em>Y</em> ). Esto se ve mas
+                    fácilmente cuando aplicamos un <code>flex-wrap: wrap-reverse</code> ya que lo que hace es cambiar el
+                    direccionamiento del eje <em>Y</em>. Las columnas siguen en su sitio, pero cambia la posición de
+                    inicio del eje Y de abajo a arriba.</p>
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                    <div class="flex-item">6</div>
+                    <div class="flex-item">7</div>
+                    <div class="flex-item">8</div>
+                    <div class="flex-item">9</div>
+                </div>
+            </div>
+            <div class="ejemplo ejemplo5">
+                <h2>Ejemplo 5</h2>
+                <p>Por lo tanto con <em>flex-wrap</em> modificamos el eje secundario (<em>Y</em>) y con
+                    <em>flex-direction el eje principal (<em>X</em>)</em>. De este modo si el ejemplo anterior
+                    quisiéramos cambiar totalmente los dos ejes habría que poner <code>flex-direction:
+                        row-reverse;flex-wrap: wrap-reverse;</code> o bien usar el <em>shorthand </em> <code>flex-flow:
+                    row-reverse wrap-reverse</code></p>
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                    <div class="flex-item">6</div>
+                    <div class="flex-item">7</div>
+                    <div class="flex-item">8</div>
+                    <div class="flex-item">9</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

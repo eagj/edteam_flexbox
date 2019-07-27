@@ -1,0 +1,200 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>3. Alineción en Flexbox</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+
+        }
+
+        p {
+            margin: 1em 0.5em;
+        }
+
+        .underline {
+            text-decoration: underline
+        }
+
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+
+        code {
+            outline: 1px solid darkgray;
+            padding: .3em;
+            background-color: lightgray;
+            color: gray;
+            font-size: .9em;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 1.2em;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .ejemplo .flex-container {
+            display: flex;
+            font-size: 4em;
+            background-color: rgb(66, 223, 202);
+        }
+
+        .ejemplo .flex-container .flex-item {
+            border: 1px solid #333;
+            margin: .5rem;
+
+        }
+
+        /*EJEMPLO 1 */
+        .ejemplo.ejemplo1 .flex-container {
+            flex-flow: wrap;
+            justify-content: flex-start;
+        }
+
+        .ejemplo.ejemplo1 .flex-container .flex-item {
+            padding: .5rem 1em;
+        }
+
+        .ejemplo.ejemplo1_1 .flex-container {
+            justify-content: flex-end;
+        }
+
+        .ejemplo.ejemplo1_2 .flex-container {
+            justify-content: center;
+        }
+
+        .ejemplo.ejemplo1_3 .flex-container {
+            justify-content: space-around;
+        }
+
+        .ejemplo.ejemplo1_4 .flex-container {
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h1 class="center">3. Alineación en Flexbox</h1>
+
+        <ul>
+            <li><b>Alineacion de items</b></li>
+            <ul>
+                <li>
+                    <div><b>justify-content</b>: flex-start | flex-end | center | space-between | space-around |
+                        space-evenly</div>
+                    <span><small><b>Alinea los items en el eje principal (main axis)</b></small></span>
+
+                </li>
+                <p></p>
+                <li>
+                    <div><b>align-items</b>: flex-start | flex-end | center | baseline | stretch</div>
+                    <span><small><b>Alinea los items en el eje secundario (cross axis) dentro de la
+                                linea</b></small></span>
+                </li>
+            </ul>
+            <p></p>
+            <li><b>Alineación de lineas</b></li>
+            <ul>
+                <li>
+                    <div><b>align-content</b>: flex-start | flex-end | center | space-between | space-around |
+                        space-evenly | stretch</div>
+                    <span><small><b>Alinea las lineas respecto al container</b></small></span>
+                </li>
+            </ul>
+        </ul>
+
+
+        <div class="ejemplos">
+            <div class="ejemplo ejemplo1">
+                <h2>Ejemplo 1</h2>
+                <p>En este ejemplo ponemos el <code>flex-flow:wrap</code> (en el padre) y empezamos a jugar con
+                    <em>justify-content</em>, el cual por defecto tiene el valor de <b>flex-start</b></p>
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                    <div class="flex-item">6</div>
+                    <div class="flex-item">7</div>
+                    <div class="flex-item">8</div>
+                    <div class="flex-item">9</div>
+                </div>
+                <p class="center"><code>justify-content: flex-start</code></p>
+            </div>
+            <div class="ejemplo ejemplo1 ejemplo1_1">
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                    <div class="flex-item">6</div>
+                    <div class="flex-item">7</div>
+                    <div class="flex-item">8</div>
+                    <div class="flex-item">9</div>
+                </div>
+                <p class="center"><code>justify-content: flex-end</code></p>
+            </div>
+            <div class="ejemplo ejemplo1 ejemplo1_2">
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                    <div class="flex-item">6</div>
+                    <div class="flex-item">7</div>
+                    <div class="flex-item">8</div>
+                    <div class="flex-item">9</div>
+                </div>
+                <p class="center"><code>justify-content: center</code></p>
+            </div>
+            <div class="ejemplo ejemplo1 ejemplo1_3">
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                    <div class="flex-item">6</div>
+                    <div class="flex-item">7</div>
+                    <div class="flex-item">8</div>
+                    <div class="flex-item">9</div>
+                </div>
+                <p class="center"><code>justify-content: space-around</code> esto genera un espacio
+                    <b>alrededor</b> de los items (como si tuviesen un margin left y right iguales que lo
+                    calcula el navegador en base al espacio vacío que hay) </small></em> </p>
+            </div>
+            <div class="ejemplo ejemplo1 ejemplo1_4">
+                <div class="flex-container">
+                    <div class="flex-item">1</div>
+                    <div class="flex-item">2</div>
+                    <div class="flex-item">3</div>
+                    <div class="flex-item">4</div>
+                    <div class="flex-item">5</div>
+                    <div class="flex-item">6</div>
+                    <div class="flex-item">7</div>
+                    <div class="flex-item">8</div>
+                    <div class="flex-item">9</div>
+                </div>
+                <p class="center"><code>justify-content: space-between</code> esto genera un espacio <b>entre</b>
+                    los items (entre unos y otros, no como space-around que lo hace <b>alrededor</b> de los
+                    items) </small></em> </p>
+                <p>*<em>el margin right de elementos es porque ahora mismo tienen un margin de 1rem</em></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
